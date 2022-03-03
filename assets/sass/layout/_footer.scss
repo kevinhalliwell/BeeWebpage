@@ -1,5 +1,5 @@
 ///
-/// Archetype by Pixelarity
+/// Big Picture by Pixelarity
 /// pixelarity.com | hello@pixelarity.com
 /// License: pixelarity.com/license
 ///
@@ -7,108 +7,68 @@
 /* Footer */
 
 	#footer {
-		@include banner-bg('../../images/banner.jpg');
-		@include color-typography(accent4);
-		@include color-button(accent4);
-		@include color-section(accent4);
+		@include vendor('display', 'flex');
+		@include vendor('align-items', 'center');
+		@include vendor('justify-content', 'space-between');
+		position: relative;
+		margin: 0;
+		line-height: 1em;
+		padding: 1.5em;
+		background: _palette(accent3, bg);
+		color: _palette(accent3, fg);
+		overflow: hidden;
 
-		.content {
-			@include padding(6.5em, 0);
-			background-color: _palette(accent4, bg);
+		> * {
+			margin-bottom: 0;
+		}
 
-			> .inner {
-				@include vendor('display', 'flex');
-				margin: 0 auto;
-				width: 70em;
+		a {
+			color: inherit;
 
-				> * {
-					padding-left: (_size(element-margin) * 1.5);
-					width: 25%;
-				}
-
-				.about {
-					padding-left: 0;
-					width: 50%;
-				}
+			&:hover {
+				color: _palette(accent3, fg-bold);
 			}
+		}
 
-			@include breakpoint('<=large') {
-				@include padding(5em, 3em);
+		ul {
+			&.menu {
+				margin: 0;
 
-				> .inner {
-					width: _size(inner-width, large);
-
-					> * {
-						width: 30%;
-					}
-
-					.about {
-						width: 40%;
-					}
-				}
-			}
-
-			@include breakpoint('<=medium') {
-				> .inner {
-					@include vendor('flex-wrap', 'wrap');
-
-					> * {
-						width: 50%;
-						padding-left: 0;
-					}
-
-					.about {
-						width: 100%;
-						margin: 0 0 _size(element-margin) 0;
-					}
-				}
-			}
-
-			@include breakpoint('<=small') {
-				@include padding(2.5em, 2em);
-			}
-
-			@include breakpoint('<=xsmall') {
-				@include padding(2.5em, 1.5em);
-
-				> .inner {
-					> * {
-						width: 100%;
-					}
+				li {
+					border-left-color: _palette(accent3, border);
+					font-size: 0.9em;
 				}
 			}
 		}
 
-		.copyright {
-			font-size: 0.8em;
-			margin: 0;
-			padding: 8em 0;
+		@include breakpoint('<=medium') {
+			@include vendor('flex-direction', 'column');
+			@include vendor('justify-content', 'center');
+			line-height: 1.5em;
 			text-align: center;
+			padding: 2em 1em 2em 1em;
 
-			br {
-				display: none;
-			}
-
-			a {
-				color: inherit;
-			}
-
-			@include breakpoint('<=large') {
-				padding: 6em 0;
-			}
-
-			@include breakpoint('<=small') {
-				padding: 4em 0;
-			}
-
-			@include breakpoint('<=xsmall') {
-				br {
-					display: block;
-				}
+			> * {
+				margin: 0 0 1em 0;
 			}
 		}
 
-		body.is-mobile & {
-			background-attachment: scroll;
+		@include breakpoint('<=small') {
+			ul {
+				&.menu {
+					li {
+						border-left: none;
+						display: block;
+						line-height: inherit;
+						margin: 0.25em 0 0 0;
+						padding: 0.25em 0 0 0;
+
+						&:first-child {
+							margin-top: 0;
+							padding-top: 0;
+						}
+					}
+				}
+			}
 		}
 	}

@@ -1,5 +1,5 @@
 ///
-/// Archetype by Pixelarity
+/// Big Picture by Pixelarity
 /// pixelarity.com | hello@pixelarity.com
 /// License: pixelarity.com/license
 ///
@@ -8,8 +8,16 @@
 
 	.icon {
 		@include icon;
-		border-bottom: none;
 		position: relative;
+		text-decoration: none;
+
+		&:before {
+			line-height: inherit;
+		}
+
+		> .label {
+			display: none;
+		}
 
 		&.solid {
 			&:before {
@@ -21,9 +29,5 @@
 			&:before {
 				font-family: 'Font Awesome 5 Brands';
 			}
-		}
-
-		> .label {
-			display: none;
 		}
 	}
